@@ -1,11 +1,12 @@
 import React from 'react'
 import { DefaultChildrenProps } from '@types'
+import LocalLinksContextProvider from './LocalLinksContext'
 
 const ContextProvider = ({ children }: DefaultChildrenProps) => {
   return (
-    <div>
+    <LocalLinksContextProvider>
       {children}
-    </div>
+    </LocalLinksContextProvider>
   )
 }
 
