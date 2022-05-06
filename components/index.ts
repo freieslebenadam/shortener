@@ -1,3 +1,5 @@
 export { default as LoadingIndicator } from './Loading'
 export { default as Logo } from './Logo'
 export { default as Shortener } from './Shortener/Shortener'
+export { default as LocalLinks } from './LocalLinks/LocalLinks'
+export { default as PagePanel } from './PagePanel'

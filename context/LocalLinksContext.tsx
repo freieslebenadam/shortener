@@ -2,7 +2,13 @@ import { DefaultChildrenProps } from '@types'
 import { useLocalStorage } from 'hooks'
 import React, { useEffect, useState } from 'react'
 
-export const LocalLinksContext = React.createContext({})
+interface LocalLinksContextInterface {
+  localLinks?: any
+}
+
+const initialContext: LocalLinksContextInterface = {}
+
+export const LocalLinksContext = React.createContext(initialContext)
 
 const LocalLinksContextProvider = ({ children }: DefaultChildrenProps) => {
   const [localLinks, setLocalLinks] = useState([])
