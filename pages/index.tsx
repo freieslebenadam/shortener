@@ -2,7 +2,7 @@ import { classNames } from 'lib'
 import type { NextPage } from 'next'
 import { useState } from 'react'
 import { HiLink } from "react-icons/hi"
-import { LoadingIndicator } from "../components"
+import { Logo, LoadingIndicator } from "../components"
 import { motion } from "framer-motion"
 
 const Home: NextPage = () => {
@@ -13,10 +13,7 @@ const Home: NextPage = () => {
       <div className="container">
         <motion.div initial={{scale:0}} animate={{scale:1}} className='p-10 rounded-xl bg-lighter-300 backdrop-blur shadow-lg ring-1 ring-lighter-500'>
           <div className='text-center mb-4'>
-            <h1 className='font-extrabold text-3xl'>
-              <span>Short.</span>
-              <span className='bg-clip-text text-transparent bg-gradient-to-tr from-orange-600 to-amber-500'>me</span>
-            </h1>
+            <Logo />
             <p className='font-medium text-gray-400'>Paste a link you want to be shortened below:</p>
           </div>
           <div className='flex py-2 text-lg'>
