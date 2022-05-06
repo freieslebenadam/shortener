@@ -17,6 +17,7 @@
     "baseUrl": ".",
     "paths": {
       "@types": ["ts/types"],
+      "@interfaces": ["ts/interfaces"],
       "@components/*": ["components/*"],
       "@components" : ["components"],
       "@lib": ["lib"]

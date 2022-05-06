@@ -6,10 +6,13 @@ const Home: NextPage = () => {
   const {localLinks} = useLocalLinks()
 
   return (
-    <div className="h-screen flex flex-col pt-48 items-center text-gray-700">
+    <div className="h-screen flex flex-col pt-48 items-center text-gray-700 selection:bg-dim-300 selection:text-white">
       <div className="container">
         <Shortener />
-        {localLinks.length > 0 &&(
+
+        <div className='my-5' />
+
+        {localLinks?.length > 0 &&(
           <LocalLinks />
         )}
       </div>

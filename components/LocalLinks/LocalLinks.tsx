@@ -1,8 +1,14 @@
 import React from 'react'
+import { PagePanel } from "@components"
+import LocalLinksHeader from './LocalLinksHeader'
+import LocalLinksList from './LocalLinksList'
 
 const LocalLinks = () => {
   return (
-    <div>LocalLinks</div>
+    <PagePanel>
+      <LocalLinksHeader />
+      <LocalLinksList />
+    </PagePanel>
   )
 }
 

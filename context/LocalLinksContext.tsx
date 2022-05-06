@@ -2,6 +2,9 @@ import { DefaultChildrenProps } from '@types'
 import { useLocalStorage } from 'hooks'
 import React, { useEffect, useState } from 'react'
 
+// ! ONLY FOR TESTING: REMOVE LATER
+import DUMMY_DATA from "../lib/DUMMY_DATA"
+
 interface LocalLinksContextInterface {
   localLinks?: any
 }
@@ -11,7 +14,7 @@ const initialContext: LocalLinksContextInterface = {}
 export const LocalLinksContext = React.createContext(initialContext)
 
 const LocalLinksContextProvider = ({ children }: DefaultChildrenProps) => {
-  const [localLinks, setLocalLinks] = useState([])
+  const [localLinks, setLocalLinks] = useState(DUMMY_DATA)
   const [storedLocalLinks, storeLocalLinks] = useLocalStorage("links", [])
 
   useEffect(() => {
