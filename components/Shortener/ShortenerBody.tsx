@@ -26,8 +26,8 @@ const ShortenerBody = () => {
         short_link: shortlink
       })
     }).then((response) => response.json())
-    .then(() => {
-      addNewLink(linkInput, shortlink)
+    .then(({ short_link }) => {
+      addNewLink(linkInput, short_link)
       setLoading(false)
       setLinkInput("")
     })
