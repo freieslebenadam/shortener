@@ -15,6 +15,10 @@ const LocalLinks = () => {
   }, [localLinks])
 
   if (loadingLinks) return null
+
+  // TODO: Set maximum height and own scroll
+
+  // TODO: Filter list by newest
   
   return (
     <PagePanel>
