@@ -13,7 +13,11 @@ const ShortLinkRedirect = ({ shortlink }: Props) => {
 
   useEffect(() => {
     if (shortlink) {
-      router.push(`${shortlink.originalLink}`)
+      if (shortlink.originalLink.match(/^http/g)) {
+        router.push(`${shortlink.originalLink}`)
+      } else {
+        router.push(`http://${shortlink.originalLink}`)
+      }
     } else {
       router.push(`/`)
     }

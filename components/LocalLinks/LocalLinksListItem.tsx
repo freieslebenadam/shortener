@@ -28,7 +28,7 @@ const LocalLinksListItem = ({ link }: Props) => {
       <a href={link.originalLink} target="_blank" className='block flex-auto px-4 py-2 overflow-hidden font-medium text-gray-600'>
         {formattedOriginalLink}
       </a>
-      <a href={link.shortLink} target="_blank" className='block flex-none px-4 py-2 text-orange-600 font-semibold'>
+      <a href={`http://${link.shortLink}`} target="_blank" className='block flex-none px-4 py-2 text-orange-600 font-semibold'>
         {link.shortLink}
       </a>
       <div className='flex-none p-2'>
