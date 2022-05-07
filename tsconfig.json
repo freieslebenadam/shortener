@@ -20,9 +20,10 @@
       "@interfaces": ["ts/interfaces"],
       "@components/*": ["components/*"],
       "@components" : ["components"],
-      "@lib": ["lib"]
+      "@lib": ["lib"],
+      "@utils/*": ["utils/*"]
     }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "utils/supabase.js"],
   "exclude": ["node_modules"]
 }
