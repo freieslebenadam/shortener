@@ -1,23 +1,39 @@
-# Next.js + Tailwind CSS Example
+# Short.me
 
-This example shows how to use [Tailwind CSS](https://tailwindcss.com/) [(v3.0)](https://tailwindcss.com/blog/tailwindcss-v3) with Next.js. It follows the steps outlined in the official [Tailwind docs](https://tailwindcss.com/docs/guides/nextjs).
+A front-end [Next.js](https://nextjs.org/) application for creating a short-hand alias of normal links.
 
-## Deploy your own
+## Stack
 
-Deploy the example using [Vercel](https://vercel.com?utm_source=github&utm_medium=readme&utm_campaign=next-example) or preview live with [StackBlitz](https://stackblitz.com/github/vercel/next.js/tree/canary/examples/with-tailwindcss)
+- [Supabase](https://supabase.com/) as a backend platform with SDK
+- [Next.js](https://nextjs.org/) framework
+- [React](https://reactjs.org/) library
+- [Tailwind](https://tailwindcss.com/) for easy styling
+- [Framer Motion](https://www.framer.com/motion/) animation library
 
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/git/external?repository-url=https://github.com/vercel/next.js/tree/canary/examples/with-tailwindcss&project-name=with-tailwindcss&repository-name=with-tailwindcss)
+## Installation
 
-## How to use
-
-Execute [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app) with [npm](https://docs.npmjs.com/cli/init) or [Yarn](https://yarnpkg.com/lang/en/docs/cli/create/) to bootstrap the example:
-
+Install Node.js dependencies:
 ```bash
-npx create-next-app --example with-tailwindcss with-tailwindcss-app
-# or
-yarn create next-app --example with-tailwindcss with-tailwindcss-app
-# or
-pnpm create next-app -- --example with-tailwindcss with-tailwindcss-app
+npm install
 ```
 
-Deploy it to the cloud with [Vercel](https://vercel.com/new?utm_source=github&utm_medium=readme&utm_campaign=next-example) ([Documentation](https://nextjs.org/docs/deployment)).
+Configure `.env.local` with values from [Supabase](https://supabase.com/):
+```ruby
+NEXT_PUBLIC_SUPABASE_API_URL=your_api_url
+NEXT_PUBLIC_SUPABASE_API_KEY=your_api_key
+```
+
+Run dev server locally:
+```bash
+npm run dev
+```
+
+Build application:
+```bash
+npm run build
+```
+
+Start built application:
+```bash
+npm start
+```
