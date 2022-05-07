@@ -1,11 +1,9 @@
-import type { GetServerSideProps, NextPage } from 'next'
+import type { NextPage } from 'next'
 import { LocalLinks, Shortener } from "@components"
 
-type Props = { host: string | null }
-
-const Home: NextPage<Props> = ({ host }: Props) => {
+const Home: NextPage = () => {
   return (
-    <div className="h-screen flex flex-col pt-48 items-center text-gray-700 selection:bg-dim-300 selection:text-white overflow-hidden">
+    <div className="h-screen flex flex-col pt-6 sm:pt-48 items-center text-gray-700 selection:bg-dim-300 selection:text-white overflow-y-auto sm:overflow-hidden">
       <div className="container">
         <Shortener />
 
@@ -18,6 +16,3 @@ const Home: NextPage<Props> = ({ host }: Props) => {
 }
 
 export default Home
-
-export const getServerSideProps: GetServerSideProps<Props> =
-  async context => ({ props: { host: context.req.headers.host || null } })
