@@ -19,4 +19,5 @@ export const getShortlink = async (shortLink) => {
     .from('shortlink')
     .select('*')
     .eq('short_link', shortLink)
+    .single()
 }

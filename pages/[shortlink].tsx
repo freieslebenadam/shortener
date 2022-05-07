@@ -15,7 +15,7 @@ const ShortLinkRedirect = ({ shortlink }: Props) => {
     if (shortlink) {
       router.push(`${shortlink.originalLink}`)
     } else {
-      router.push(`/404`)
+      router.push(`/`)
     }
   }, [])
 
@@ -28,13 +28,15 @@ export const getServerSideProps = async ({ params }: GetServerSidePropsContext) 
   const { data: shortlink, error } = await getShortlink(params?.shortlink)
 
   if (error) {
-    throw error
+    return { notFound: true }
   }
 
+  console.log({shortlink})
+
   const newShortlink: IShortLink = {
-    id: shortlink[0].id,
-    originalLink: shortlink[0].original_link,
-    shortLink: shortlink[0].short_link
+    id: shortlink.id,
+    originalLink: shortlink.original_link,
+    shortLink: shortlink.short_link
   }
 
   return {
