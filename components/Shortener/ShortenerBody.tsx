@@ -1,11 +1,13 @@
 import React, { useState } from 'react'
 import { HiLink } from "react-icons/hi"
 import { LoadingIndicator } from "@components"
-import { classNames } from '@lib'
+import { classNames, generateString } from '@lib'
+import { useLocalLinks } from 'hooks'
 
 const ShortenerBody = () => {
   const [linkInput, setLinkInput] = useState("")
   const [loading, setLoading] = useState(false)
+  const {addNewLink} = useLocalLinks()
 
   const handleSubmit = (e: React.SyntheticEvent) => {
     e.preventDefault()
@@ -13,6 +15,10 @@ const ShortenerBody = () => {
     setLoading(true)
 
     setTimeout(() => {
+      const shortlink = generateString(5)
+
+      addNewLink(linkInput, shortlink)
+
       setLoading(false)
       setLinkInput("")
     }, 2000)

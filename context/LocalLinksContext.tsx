@@ -2,35 +2,35 @@ import { IShortLink } from '@interfaces'
 import { DefaultChildrenProps } from '@types'
 import { useLocalStorage } from 'hooks'
 import React, { useEffect, useState } from 'react'
-import { insertNewShortlink } from "@utils/supabase"
-
-// ! ONLY FOR TESTING: REMOVE LATER
-import DUMMY_DATA from "../lib/DUMMY_DATA"
 
 interface LocalLinksContextInterface {
-  localLinks?: any
+  localLinks: any,
+  addNewLink: (originalLink: string, shortLink: string) => void
 }
 
-const initialContext: LocalLinksContextInterface = {}
+const initialContext: LocalLinksContextInterface = {
+  localLinks: [],
+  addNewLink: () => null
+}
 
 export const LocalLinksContext = React.createContext(initialContext)
 
+const initialLinksState: IShortLink[] = []
+
 const LocalLinksContextProvider = ({ children }: DefaultChildrenProps) => {
-  const [localLinks, setLocalLinks] = useState(DUMMY_DATA)
+  const [localLinks, setLocalLinks] = useState(initialLinksState)
   const [storedLocalLinks, storeLocalLinks] = useLocalStorage("links", [])
 
   useEffect(() => {
-    if (storedLocalLinks.length > 0) {
-      setLocalLinks(storeLocalLinks)
-    }
-  }, [])
-
-  useEffect(() => {
+    if (localLinks.length > 0)
     storeLocalLinks(localLinks)
   }, [localLinks])
+  
+  useEffect(() => {
+    setLocalLinks(storedLocalLinks)
+  }, [])
 
-  // TODO: Function for adding new links
-  const addNewLink = async (originalLink: string, shortLink: string) => {
+  const addNewLink = (originalLink: string, shortLink: string) => {
     const newLink: IShortLink = { 
       id: localLinks.length === 0 ? 1 : Math.max(...localLinks.map(link => link.id)) + 1,
       originalLink,
@@ -43,12 +43,10 @@ const LocalLinksContextProvider = ({ children }: DefaultChildrenProps) => {
         newLink
       ]
     })
-
-    insertNewShortlink(newLink.originalLink, newLink.shortLink)
   }
 
   return (
-    <LocalLinksContext.Provider value={{localLinks}}>
+    <LocalLinksContext.Provider value={{localLinks, addNewLink}}>
       {children}
     </LocalLinksContext.Provider>
   )
