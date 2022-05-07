@@ -25,7 +25,7 @@ const LocalLinksListItem = ({ link }: Props) => {
 
   return (
     <div className='rounded shadow text-sm flex flex-col sm:flex-row items-center bg-gray-50'>
-      <a href={link.originalLink} target="_blank" className='block flex-auto px-4 py-2 overflow-hidden font-medium text-gray-600'>
+      <a href={link.originalLink} target="_blank" className='block flex-auto whitespace-nowrap px-4 py-2 w-full overflow-hidden text-center sm:text-left font-medium text-gray-600 relative after:absolute after:right-0 after:top-0 after:bottom-0 after:w-16 after:bg-gradient-to-r after:from-transparent after:vie-gray-50 after:to-gray-50'>
         {formattedOriginalLink}
       </a>
       <a href={`http://${link.shortLink}`} target="_blank" className='block flex-none px-4 py-2 text-orange-600 font-semibold overflow-hidden'>
