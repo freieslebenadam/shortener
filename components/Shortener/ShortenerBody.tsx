@@ -14,14 +14,24 @@ const ShortenerBody = () => {
 
     setLoading(true)
 
-    setTimeout(() => {
-      const shortlink = generateString(5)
+    const shortlink = generateString(5)
 
+    fetch('/api/new', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+        original_link: linkInput,
+        short_link: shortlink
+      })
+    }).then((response) => response.json())
+    .then(() => {
       addNewLink(linkInput, shortlink)
-
       setLoading(false)
       setLinkInput("")
-    }, 2000)
+    })
+    .catch((error) => console.log(error))
   }
 
   return (

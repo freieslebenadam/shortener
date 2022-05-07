@@ -31,8 +31,6 @@ export const getServerSideProps = async ({ params }: GetServerSidePropsContext) 
     return { notFound: true }
   }
 
-  console.log({shortlink})
-
   const newShortlink: IShortLink = {
     id: shortlink.id,
     originalLink: shortlink.original_link,
