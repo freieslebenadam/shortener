@@ -1,6 +1,7 @@
 import { IShortLink } from '@interfaces'
 import { classNames } from '@lib'
 import React, { useState } from 'react'
+import { FaCheckCircle } from "react-icons/fa"
 
 type Props = {
   link: IShortLink
@@ -15,7 +16,7 @@ const LocalLinksListItem = ({ link }: Props) => {
   const handleCopy = () => {
     setLinkCopied(true)
 
-    navigator.clipboard.writeText("OIJSDGIOSDOIGHOIS")
+    navigator.clipboard.writeText(link.shortLink)
 
     setTimeout(() => {
       setLinkCopied(false)
@@ -27,16 +28,21 @@ const LocalLinksListItem = ({ link }: Props) => {
       <a href={link.originalLink} target="_blank" className='block flex-auto px-4 py-2 overflow-hidden font-medium text-gray-600'>
         {formattedOriginalLink}
       </a>
-      <div className='flex-none px-2 text-orange-600 font-semibold'>
+      <a href={link.shortLink} target="_blank" className='block flex-none px-4 py-2 text-orange-600 font-semibold'>
         {link.shortLink}
-      </div>
+      </a>
       <div className='flex-none p-2'>
         <button 
           className={classNames(linkCopied ? "bg-gray-800 cursor-default": "bg-orange-600 hover:bg-orange-500",
-            "flex text-white font-semibold uppercase px-6 py-2 transition-all rounded")}
+            "flex text-white font-semibold uppercase p-2 w-24 items-center overflow-hidden justify-center text-center transition-all rounded ease-in-out")}
           onClick={handleCopy}
         >
-          Copy
+          {linkCopied ? (
+            <span className='inline-flex items-center gap-1'>
+              <FaCheckCircle />
+              Copied!
+            </span>
+          ) : "Copy"}
         </button>
       </div>
     </div>

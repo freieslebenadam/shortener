@@ -5,7 +5,7 @@ export default function handler({ body: { original_link, short_link }, headers: 
 
   if (original_link && short_link) {
     const shortlink = `${host}/${short_link}`
-    const response = insertNewShortlink(original_link, shortlink)
+    const response = insertNewShortlink(original_link, short_link)
     return res.status(200).json({response, short_link: shortlink})
   }
   
